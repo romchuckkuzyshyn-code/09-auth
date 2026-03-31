@@ -6,6 +6,10 @@ export interface Note {
   updatedAt: string;
   tag: Tag;
 }
+export interface NotesResponse {
+  notes: Note[];
+  totalPages: number;
+}
 
 export type Tag = 'Work' | 'Personal' | 'Meeting' | 'Shopping' | 'Todo';
 
