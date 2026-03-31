@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import css from './Page.module.css';
+import css from './Edit.module.css';
 import { useAuthStore } from '@/lib/store/authStore';
 import { useRouter } from 'next/navigation';
 import { updateMe } from '@/lib/api/clientApi';
