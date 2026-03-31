@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+
 import Image from 'next/image';
 import css from './Profile.module.css';
 import { useAuthStore } from '@/lib/store/authStore';
