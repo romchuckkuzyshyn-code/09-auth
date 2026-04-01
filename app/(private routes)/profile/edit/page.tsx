@@ -5,16 +5,18 @@ import { useAuthStore } from '@/lib/store/authStore';
 import { useRouter } from 'next/navigation';
 
 import { updateMe } from '@/lib/api/clientApi';
+import { useState } from 'react';
 
 const Page = () => {
   const user = useAuthStore(s => s.user);
   const setUser = useAuthStore(s => s.setUser);
   const router = useRouter();
+  const [username, setUsername] = useState('');
 
-  const handleSubmit = async (formData: FormData) => {
-    const username = formData.get('username') as string;
-    const updUsername = await updateMe({ username });
-    setUser(updUsername);
+  const handleSubmit = async () => {
+    const UpdUsername = username || user?.username || '';
+    const finalUser = await updateMe({ username: UpdUsername });
+    setUser(finalUser);
     router.push('/profile');
   };
   return (
@@ -40,7 +42,8 @@ const Page = () => {
               type="text"
               className={css.input}
               name="username"
-              defaultValue={user?.username}
+              value={username || user?.username || ''}
+              onChange={e => setUsername(e.target.value)}
             />
           </div>
 

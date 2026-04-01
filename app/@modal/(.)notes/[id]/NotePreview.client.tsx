@@ -24,8 +24,6 @@ export default function NotePreview() {
 
   return (
     <Modal closeModal={close}>
-      {isLoading && <p>Loading, please wait...</p>}
-      {(error || !data) && <p>Something went wrong.</p>}
       {data && (
         <div className={css.container}>
           <div className={css.item}>
